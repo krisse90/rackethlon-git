@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Player login — Rackethlon</title>
+  <meta name="description" content="Sign in as a player to submit match scores and confirm opponent results." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="login">
+  <header class="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="index.html"><span class="brand-mark">R</span> Rackethlon</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="tournament.html">Tournament</a></li>
+          <li><a href="matches.html">Matches</a></li>
+          <li><a href="rankings.html">Rankings</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+      <div class="nav-end">
+        <span class="nav-user"></span>
+        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container auth-wrap">
+    <section class="auth-card">
+      <h1>Player sign-in</h1>
+      <p class="sub">Demo only — your identity lives in this browser. Pick an existing player or create a new name.</p>
+
+      <form class="form" id="login-form" autocomplete="off">
+        <div class="form-row">
+          <label for="l-name">Player name</label>
+          <input id="l-name" name="l-name" type="text" placeholder="Type or pick a name" required />
+        </div>
+        <div class="suggestions" id="suggestions"></div>
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit">Sign in</button>
+          <button class="btn btn-danger" type="button" id="logout-btn">Sign out</button>
+        </div>
+        <p class="helper" id="current-player">No active session.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© 2026 Rackethlon · Frontend prototype</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tournament setup — Rackethlon</title>
+  <meta name="description" content="Configure tournament details, manage players, and generate the round-robin bracket." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="tournament">
+  <header class="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="index.html"><span class="brand-mark">R</span> Rackethlon</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="tournament.html">Tournament</a></li>
+          <li><a href="matches.html">Matches</a></li>
+          <li><a href="rankings.html">Rankings</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+      <div class="nav-end">
+        <span class="nav-user"></span>
+        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section first-section">
+      <div class="section-head">
+        <div>
+          <h2>Tournament details</h2>
+          <p>Name your event and pick a format. Saved instantly to your browser.</p>
+        </div>
+      </div>
+
+      <form class="form" id="tournament-form" autocomplete="off">
+        <div class="row-2">
+          <div class="form-row">
+            <label for="t-name">Tournament name</label>
+            <input id="t-name" name="t-name" type="text" placeholder="e.g. Spring Open 2026" required />
+          </div>
+          <div class="form-row">
+            <label for="t-format">Format</label>
+            <select id="t-format" name="t-format">
+              <option>Round Robin</option>
+              <option>Single Elimination</option>
+              <option>Double Elimination</option>
+              <option>Swiss</option>
+            </select>
+          </div>
+        </div>
+        <div class="row-2">
+          <div class="form-row">
+            <label for="t-max-points">Max points per game</label>
+            <input id="t-max-points" name="t-max-points" type="number" min="1" max="999" value="21" required />
+            <p class="helper">Winner must reach this score to win the match (for example 21‑20 or 15‑14).</p>
+          </div>
+          <div class="form-row">
+            <label>Sport schedule</label>
+            <div class="mini-grid">
+              <div>
+                <label for="t-tennis-course">Tennis court</label>
+                <input id="t-tennis-course" name="t-tennis-course" type="text" placeholder="Court 1" value="Court 1" required />
+              </div>
+              <div>
+                <label for="t-tennis-time">Tennis time</label>
+                <input id="t-tennis-time" name="t-tennis-time" type="time" value="10:00" required />
+              </div>
+              <div>
+                <label for="t-tennis-duration">Tennis duration</label>
+                <input id="t-tennis-duration" name="t-tennis-duration" type="number" min="1" max="240" value="60" required />
+              </div>
+              <div>
+                <label for="t-squash-course">Squash court</label>
+                <input id="t-squash-course" name="t-squash-course" type="text" placeholder="Court 2" value="Court 2" required />
+              </div>
+              <div>
+                <label for="t-squash-time">Squash time</label>
+                <input id="t-squash-time" name="t-squash-time" type="time" value="11:00" required />
+              </div>
+              <div>
+                <label for="t-squash-duration">Squash duration</label>
+                <input id="t-squash-duration" name="t-squash-duration" type="number" min="1" max="240" value="50" required />
+              </div>
+              <div>
+                <label for="t-table-tennis-course">Table Tennis court</label>
+                <input id="t-table-tennis-course" name="t-table-tennis-course" type="text" placeholder="Table 1" value="Table 1" required />
+              </div>
+              <div>
+                <label for="t-table-tennis-time">Table Tennis time</label>
+                <input id="t-table-tennis-time" name="t-table-tennis-time" type="time" value="12:00" required />
+              </div>
+              <div>
+                <label for="t-table-tennis-duration">Table Tennis duration</label>
+                <input id="t-table-tennis-duration" name="t-table-tennis-duration" type="number" min="1" max="240" value="40" required />
+              </div>
+              <div>
+                <label for="t-badminton-course">Badminton court</label>
+                <input id="t-badminton-course" name="t-badminton-course" type="text" placeholder="Court 3" value="Court 3" required />
+              </div>
+              <div>
+                <label for="t-badminton-time">Badminton time</label>
+                <input id="t-badminton-time" name="t-badminton-time" type="time" value="13:00" required />
+              </div>
+              <div>
+                <label for="t-badminton-duration">Badminton duration</label>
+                <input id="t-badminton-duration" name="t-badminton-duration" type="number" min="1" max="240" value="55" required />
+              </div>
+            </div>
+            <p class="helper">Set the court and default time for each sport.</p>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit">Save tournament</button>
+          <a class="btn btn-ghost" href="matches.html">Go to matches</a>
+        </div>
+      </form>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>Players</h2>
+          <p>Add players to the roster — they'll appear in match generation.</p>
+        </div>
+      </div>
+
+      <div id="players-list" class="player-chips-wrap"></div>
+
+      <form class="form" id="add-player-form" autocomplete="off">
+        <div class="row-2">
+          <div class="form-row">
+            <label for="p-name">Player name</label>
+            <input id="p-name" name="p-name" type="text" placeholder="e.g. Taylor Reed" required />
+          </div>
+          <div class="form-row form-row-end">
+            <button class="btn btn-primary" type="submit">Add player</button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>Match generation</h2>
+          <p>Generate a full round-robin schedule from the current player list.</p>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn-primary" id="generate-matches" type="button">Generate matches</button>
+        <button class="btn btn-danger" id="clear-matches" type="button">Clear all matches</button>
+      </div>
+      <p class="helper helper-space">Heads-up: regenerating replaces every existing match for this tournament.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© 2026 Rackethlon · Frontend prototype</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

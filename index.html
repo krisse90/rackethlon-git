@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rackethlon — Tournament Manager</title>
+  <meta name="description" content="Rackethlon: a modern frontend prototype for managing racket sports tournaments, matches and rankings." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="index">
+  <header class="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">R</span> Rackethlon
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="tournament.html">Tournament</a></li>
+          <li><a href="matches.html">Matches</a></li>
+          <li><a href="rankings.html">Rankings</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+      <div class="nav-end">
+        <span class="nav-user"></span>
+        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>Run your <span class="accent">racket tournament</span> like a pro.</h1>
+        <p>Rackethlon is a sleek, frontend-only prototype to organise tournaments, manage matches, submit scores with opponent confirmation, and watch the rankings update in real time across browser tabs.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="tournament.html">Set up tournament</a>
+          <a class="btn" href="matches.html">View matches</a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <div class="badge confirmed">Live tournament</div>
+        <h2 id="tournament-name" class="hero-title">Spring Open 2026</h2>
+        <p class="hero-desc">Round-robin format · auto-generated bracket</p>
+        <div class="hero-stats" id="stats"></div>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>Quick navigation</h2>
+          <p>Jump straight into the part of the tournament you need.</p>
+        </div>
+      </div>
+      <div class="card-grid">
+        <a class="card nav-card" href="tournament.html">
+          <div class="icon">🏆</div>
+          <h3>Tournament setup</h3>
+          <p>Configure format, add players, regenerate the bracket.</p>
+        </a>
+        <a class="card nav-card" href="matches.html">
+          <div class="icon">🎾</div>
+          <h3>Matches</h3>
+          <p>Submit scores and confirm results from your opponents.</p>
+        </a>
+        <a class="card nav-card" href="rankings.html">
+          <div class="icon">📊</div>
+          <h3>Rankings</h3>
+          <p>Live standings with wins, losses, and point differential.</p>
+        </a>
+        <a class="card nav-card" href="login.html">
+          <div class="icon">👤</div>
+          <h3>Player login</h3>
+          <p>Sign in as a player to submit and confirm scores.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>Upcoming matches</h2>
+          <p>The next fixtures waiting to be played.</p>
+        </div>
+        <a class="btn btn-sm" href="matches.html">All matches →</a>
+      </div>
+      <div class="match-list" id="upcoming"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>Top of the table</h2>
+          <p>The five players leading the tournament right now.</p>
+        </div>
+        <a class="btn btn-sm" href="rankings.html">Full rankings →</a>
+      </div>
+      <div id="mini-ranking"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© 2026 Rackethlon · Frontend prototype · Built for HTML &amp; CSS coursework by Krista Soon</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

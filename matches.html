@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Matches — Rackethlon</title>
+  <meta name="description" content="View, filter, and submit scores for every match in the tournament." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="matches">
+  <header class="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="index.html"><span class="brand-mark">R</span> Rackethlon</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="tournament.html">Tournament</a></li>
+          <li><a href="matches.html">Matches</a></li>
+          <li><a href="rankings.html">Rankings</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+      <div class="nav-end">
+        <span class="nav-user"></span>
+        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section first-section">
+      <div class="section-head">
+        <div>
+          <h2>All matches</h2>
+          <p>Sign in as a player to submit a score, then your opponent confirms or rejects it.</p>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <p class="filter-label">Status</p>
+        <div class="filters" role="tablist">
+          <button class="chip active" data-filter="all">All</button>
+          <button class="chip" data-filter="scheduled">Scheduled</button>
+          <button class="chip" data-filter="pending">Pending confirmation</button>
+          <button class="chip" data-filter="confirmed">Confirmed</button>
+          <button class="chip" data-filter="disputed">Disputed</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <p class="filter-label">Sport</p>
+        <div class="filters" role="tablist" id="sport-filters">
+          <button class="chip sport-filter active" data-sport="all">All sports</button>
+          <button class="chip sport-filter" data-sport="Tennis">🎾 Tennis</button>
+          <button class="chip sport-filter" data-sport="Squash">🎱 Squash</button>
+          <button class="chip sport-filter" data-sport="Table Tennis">🏓 Table Tennis</button>
+          <button class="chip sport-filter" data-sport="Badminton">🏸 Badminton</button>
+        </div>
+      </div>
+
+      <div class="match-list" id="matches"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© 2026 Rackethlon · Frontend prototype</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
